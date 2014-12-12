@@ -56,6 +56,7 @@ public class Server {
 				System.out.println("wait for event...");
 				this.selector.select();
 				
+				
 				Set<SelectionKey> selectedKey = selector.selectedKeys();
 				Iterator<SelectionKey> iterator = selectedKey.iterator();
 				
@@ -140,8 +141,7 @@ public class Server {
 	}
 
 	private void connection(SelectionKey selectionKey) {
-		System.out.println("connection...");
-		
+		System.out.println("connection...");		
 	}
 
 	private void accept(SelectionKey selectionKey) throws IOException {

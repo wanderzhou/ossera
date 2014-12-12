@@ -9,7 +9,9 @@ public class ReflectionMainTest {
 		ReflectionMain reflectionMain = new ReflectionMain();
 
 		// reflectionMain.getClassInfo(String.class);
-		 reflectionMain.getClassInfo(LinkedHashMap.class);
+		 reflectionMain.showClassInfo(LinkedHashMap.class);
+		//reflectionMain.getClassInfo(training.c2m.HybridListTest.class);
+		reflectionMain.showClassInfo(training.c5.ReflectionMain.class);
 		// reflectionMain.getClassInfo(training.c3.Company.class);
 		//reflectionMain.getClassInfo("training.c5.ReflectionMainTest");
 

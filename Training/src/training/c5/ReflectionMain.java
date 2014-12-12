@@ -8,11 +8,14 @@ import java.lang.annotation.Annotation;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.net.URL;
 import java.net.URLClassLoader;
 import java.util.ArrayList;
 import java.util.List;
+
+import training.c2.Staff;
 
 public class ReflectionMain {
 
@@ -21,7 +24,7 @@ public class ReflectionMain {
 
 		BufferedReader bufferedReader = new BufferedReader(reader);
 		try {
-			System.out.println("Please input extra path for searching class(jar file path): ");
+			System.out.println("Please input extra path for searching class(jar file path, please enter for none): ");
 			String searchPath = bufferedReader.readLine();
 
 			System.out.println("Please input the class name to reflection: ");
@@ -36,7 +39,7 @@ public class ReflectionMain {
 				} else {
 					c = Class.forName(className);
 				}
-				reflectionMain.getClassInfo(c);
+				reflectionMain.showClassInfo(c);
 			} catch (ClassNotFoundException e) {
 				e.printStackTrace();
 			} catch (Exception e) {
@@ -76,24 +79,25 @@ public class ReflectionMain {
 				ClassLoader loader = new URLClassLoader((URL[])urlList.toArray(urls),
 						systemClassLoader);
 				return loader.loadClass(className);
-				
 			}
 		}
 		return null;
 	}
 
-	public void getClassInfo(String className) {
+	public void showClassInfo(String className) {
 		try {
 			Class<?> c = Class.forName(className);
-			getClassInfo(c);
+			showClassInfo(c);
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
 
 	}
 
-	public void getClassInfo(Class<?> c) {
-
+	public void showClassInfo(Class<?> c) {
+		System.out.println(c);
+		
+		//annotations
 		System.out.println("list annotations:");
 		Annotation[] annotations = c.getDeclaredAnnotations();
 		for (Annotation n : annotations) {
@@ -129,21 +133,50 @@ public class ReflectionMain {
 		System.out.println("list fields:");
 		for (Field f : fields) {
 			System.out.println(f.toString());
+			//generic information
+			Type genType = f.getGenericType();
+			if(genType instanceof ParameterizedType) {
+				Type[] tParaTypes = ((ParameterizedType) genType).getActualTypeArguments();
+				int i = 0;
+				int j = 0;
+				for(Type tmpType : tParaTypes) {
+					System.out.println("\t[" + i + "," + j + "]" + tmpType.toString());
+				}
+			}
 		}
 		System.out.println();
-
-		// fields
-		/*
-		 * Field[] fs = c.getFields(); System.out.println("list fields:");
-		 * for(Field f : fs) { System.out.println(f.toString()); }
-		 * System.out.println();
-		 */
 
 		// list all methods
 		Method[] methods = c.getDeclaredMethods();
 		System.out.println("list methods:");
 		for (Method m : methods) {
 			System.out.println(m.toString());
+			//generic information for return
+			Type retType = m.getGenericReturnType();
+			if(retType instanceof ParameterizedType) {
+				Type[] tParaTypes = ((ParameterizedType) retType).getActualTypeArguments();
+				int i = 0;
+				int j = 0;
+				for(Type tmpType : tParaTypes) {
+					System.out.println("\treturn[" + i + "," + j + "]" + tmpType.toString());
+				}
+			}
+			
+			//generic information for parameter
+			Type[] types = m.getGenericParameterTypes();
+			int i = 0;
+			for(Type t : types) {
+				if(t instanceof ParameterizedType) {
+					Type[] tParaTypes = ((ParameterizedType) t).getActualTypeArguments();
+					int j = 0;
+					for(Type tmpType : tParaTypes) {						
+						System.out.println("\tpara[" + i + "," + j + "]" + tmpType.toString());
+						j++;
+					}
+				}
+				i++;
+			}
+			
 		}
 		System.out.println();
 
@@ -158,8 +191,8 @@ public class ReflectionMain {
 		/*
 		 * System.out.println("list interfaces:"); Class[] cis =
 		 * c.getInterfaces(); for(Class tcis : cis) {
-		 * System.out.println(tcis.toString()); } System.out.println()
-		 */;
+		 * System.out.println(tcis.toString()); } System.out.println();
+		 */
 
 		Method m = c.getEnclosingMethod();
 		if (m != null) {
@@ -169,17 +202,35 @@ public class ReflectionMain {
 	}
 
 	/**
-	 * for test reflection
+	 * for other test reflection
 	 */
+	@SuppressWarnings("unused")
 	private void print() {
 		System.out.println("print test from private method");
 	}
 
 	/**
-	 * for test reflection
+	 * for other test reflection
 	 */
+	@SuppressWarnings("unused")
 	private int add(int a, int b) {
 		return a + b;
 	}
 
+	/**
+	 * for other test reflection
+	 */	
+	public String[] getTempNames(boolean showAll, List<Integer> ids, int flag, List<String> arr, Long[] data) {
+		return null;
+	}
+	
+	/**
+	 * for other test reflection
+	 */		
+	public List<Staff> getSomeStaff(List<Integer> ids) {
+		return null;
+	}
+	
+	//fields for other test
+	public List<String> departments;
 }

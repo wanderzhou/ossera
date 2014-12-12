@@ -8,7 +8,7 @@ import java.util.HashMap;
  *
  * @param <E>
  */
-public class HybridList<E extends BasicObject> extends BasicList<E> {
+public class HybridList<E extends ListObject> extends BasicList<E> {
 	
 	static class Node<E> {
 		E item;

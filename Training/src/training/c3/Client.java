@@ -165,7 +165,6 @@ public class Client extends Thread {
 	public synchronized void setStop(boolean stop) {
 		this.stop = stop;
 	}
-	
-	
+		
 
 }

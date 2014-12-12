@@ -8,14 +8,14 @@ public class HybridListTest {
 	public static void main(String[] args) {
 		System.out.println("basic test");
 		//基本测试
-		BasicList<Staff> staffList = new HybridList<Staff>();
+		CustomList<Staff> staffList = new HybridList<Staff>();
 		
 		for(int i = 0; i < 10; i++) {
 			Staff staff = new Staff(i, "name-" + i);
 			staffList.add(staff);
 		}
 		
-		System.out.println(staffList.size == 10);
+		System.out.println(staffList.getSize() == 10);
 		System.out.println(staffList.get(0).getId() == 0);
 		System.out.println(staffList.get(9).getId() == 9);
 		
@@ -23,22 +23,27 @@ public class HybridListTest {
 		System.out.println(staffList.contains(staff));
 		
 		staffList.remove(staff);
-		System.out.println(staffList.size == 9);
+		System.out.println(staffList.getSize() == 9);
 		
+		System.out.println();
+		System.out.println("list current values:");		
 		int size = staffList.getSize();
 		for(int i = 0; i < size; i++) {
 			System.out.println(staffList.get(i).getName());
 		}
 		
+		System.out.println();
+		System.out.println("list all:");
 		Object[] staffs = staffList.listAll();
 		for(Object item : staffs) {
 			System.out.println(((Staff)item).getName());
 		}
 		
-		System.out.println(staffList.getSize());
+		System.out.println("list size: " + staffList.getSize());
 		//基本测试结束
 		
 		//批量操作测试
+		System.out.println();
 		System.out.println("Performance test");
 		
 		int recordCount = 10000;
@@ -47,7 +52,7 @@ public class HybridListTest {
 
 	}
 
-	private static long[] test(BasicList<Staff> staffList, int recordCount) {	
+	private static long[] test(CustomList<Staff> staffList, int recordCount) {	
 		//record start time
 		long addStart, getStart, containStart, listStart, removeStart;
 		//record end time

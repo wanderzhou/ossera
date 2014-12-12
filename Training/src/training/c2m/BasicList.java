@@ -6,20 +6,10 @@ package training.c2m;
  *
  * @param <E>
  */
-public abstract class BasicList<E extends BasicObject> {
+public abstract class BasicList<E extends ListObject> implements CustomList<E> {
 	protected int size;
 
-	public abstract boolean add(E element);
-	
-	public abstract boolean contains(E object);
-	
-	public abstract E get(int index);
-	
-	public abstract Object[] listAll();
-
-	public abstract void remove(Object object);
-
-
+	@Override
 	public int getSize() {
 		return size;
 	}	

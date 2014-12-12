@@ -1,8 +1,5 @@
 package training.c2m;
 
-import javax.xml.bind.annotation.XmlRootElement;
-
-
 /**
  * 
  * 员工 
@@ -10,7 +7,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author admin
  *
  */
-public class Staff extends BasicObject {
+public class Staff extends ListObject {
 	
 	private String name;
 
@@ -29,7 +26,7 @@ public class Staff extends BasicObject {
 	}
 	
 	/**
-	 * id as hash code
+	 * unique id as hash code
 	 */
 	@Override
 	public int hashCode() {

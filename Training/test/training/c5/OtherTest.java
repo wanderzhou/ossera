@@ -43,22 +43,37 @@ public class OtherTest {
 			
 			//
 			ClassLoader systemClassLoader = ClassLoader.getSystemClassLoader();
-			URL url = new URL("file:///D:\\Workspace\\Training\\bin\\test.jar");
+			URL url = new URL("file:///D:\\document\\testfolder\\test.jar");
 			
 			System.out.println(url.getProtocol());
 			System.out.println(url.getHost());
 			System.out.println(url.getFile());
 			
 			ClassLoader loader = new URLClassLoader(new URL[]{url}, systemClassLoader);
-			loader.loadClass("training.c4.Example");
+			loader.loadClass("training.c4.MyExample");
+			
+			Class<?> myExample = loader.loadClass("training.c4.OtherObject");
+			Object o1 = myExample.newInstance();
+			Object o1_2 = myExample.newInstance();
+			
+			//load with another class load
+			URL url2 = new URL("file:///D:\\document\\testfolder\\jar\\test2.jar");
+			ClassLoader loader2 = new URLClassLoader(new URL[]{url2});
+			Class<?> myExample2 = loader2.loadClass("training.c4.OtherObject");
+			Object o2 = myExample2.newInstance();
+			//true
+			System.out.println(o1.equals(o1_2));
+			
+			//java.lang.ClassCastException
+			System.out.println(o1.equals(o2));
+			
+			
 			
 
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-
 	}
 
 }

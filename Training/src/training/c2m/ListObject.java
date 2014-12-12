@@ -8,11 +8,11 @@ package training.c2m;
  * @author admin
  *
  */
-public class BasicObject {
+public class ListObject {
 	
 	protected int id;
 	
-	public BasicObject(int id) {
+	public ListObject(int id) {
 		this.id = id;
 	}
 
