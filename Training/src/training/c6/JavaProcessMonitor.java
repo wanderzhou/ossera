@@ -37,6 +37,7 @@ public class JavaProcessMonitor {
 	
 	public static void main(String[] args) {
 		String mainClass = "training.c3.Server";
+		//根据不同的平台，使用的命令有所不同
 		String startCommand = "D:\\document\\testfolder\\deploy\\startServer.bat";
 		JavaProcessMonitor jpm = new JavaProcessMonitor(mainClass, startCommand, 5);
 		
