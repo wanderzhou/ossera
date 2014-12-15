@@ -29,10 +29,13 @@ public class HybridList<E extends ListObject> extends BasicList<E> {
 	HashMap<Integer, Node<E>> hashMap = new HashMap<Integer, Node<E>>();
 	
 	
-	public boolean add(E element) {
+	public synchronized boolean add(E element) {
 		if(contains(element)) {
 			return false;
 		}
+		
+		//debug for ReadWriteTest
+		System.out.println("add :" + ((ListObject)element).getId());
 		
 		Node<E> t = last;
 		Node<E> newNode = new Node<>(t, element, null);
@@ -50,7 +53,7 @@ public class HybridList<E extends ListObject> extends BasicList<E> {
 		return true;
 	}
 
-	public boolean contains(E object) {
+	public synchronized boolean contains(E object) {
 		if(object == null) {
 			for(Node<E> node = first; node != null; node = node.next) {
 				if(node.item == null){
@@ -68,7 +71,7 @@ public class HybridList<E extends ListObject> extends BasicList<E> {
 		return false;
 	}
 
-	public E get(int index) {
+	public synchronized E get(int index) {
 		if(index >= size) {
 			return null;
 		}
@@ -88,7 +91,7 @@ public class HybridList<E extends ListObject> extends BasicList<E> {
 		}
 	}
 
-	public Object[] listAll() {
+	public synchronized Object[] listAll() {
 		Object[] objects = new Object[size];
 		int i = 0;
 		Node<E> node = first;
@@ -99,7 +102,7 @@ public class HybridList<E extends ListObject> extends BasicList<E> {
 		return objects;		
 	}
 
-	public void remove(Object object) {
+	public synchronized  void remove(Object object) {
 		if(object == null) {
 			Node<E> n = first;
 			while(n != null) {
@@ -122,7 +125,7 @@ public class HybridList<E extends ListObject> extends BasicList<E> {
 	}
 
 	
-	void unlink(Node<E> node) {
+	private void unlink(Node<E> node) {
 		Node<E> prev = node.prev;
 		Node<E> next = node.next;
 		

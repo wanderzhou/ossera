@@ -38,4 +38,8 @@ public class Staff extends ListObject {
 		return this.id == ((Staff)obj).id && this.name.equals(((Staff)obj).name);
 	}
 
+	@Override
+	public String toString() {
+		return id + ":" + name;
+	}
 }

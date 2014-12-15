@@ -10,7 +10,7 @@ public abstract class BasicList<E extends ListObject> implements CustomList<E> {
 	protected int size;
 
 	@Override
-	public int getSize() {
+	public synchronized int getSize() {
 		return size;
 	}	
 }
