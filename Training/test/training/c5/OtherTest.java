@@ -58,7 +58,7 @@ public class OtherTest {
 			
 			//load with another class load
 			URL url2 = new URL("file:///D:\\document\\testfolder\\jar\\test2.jar");
-			ClassLoader loader2 = new URLClassLoader(new URL[]{url2});
+			ClassLoader loader2 = new URLClassLoader(new URL[]{url2}, systemClassLoader);
 			Class<?> myExample2 = loader2.loadClass("training.c4.OtherObject");
 			Object o2 = myExample2.newInstance();
 			//true
