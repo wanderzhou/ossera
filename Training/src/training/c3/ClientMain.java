@@ -32,11 +32,11 @@ public class ClientMain {
 			client.start();
 			
 			//list files and select one file random
-			File file = clientMain.listFileAndGetOneRandom(EnvConfiguration.getInstance().getClientPath());
+			File file = FileHelper.listFileAndGetOneRandom(EnvConfiguration.getInstance().getClientPath());
 			System.out.println("selected file: " + file.getName());
 			
 			//read from file and convert to object list
-			List<Staff> staffs = clientMain.readFromFile(file);
+			List<Staff> staffs = FileHelper.readFromFile(file);
 			
 			//convert object to xml
 			Company company = new Company();
@@ -60,66 +60,6 @@ public class ClientMain {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	}
-	
-	/**
-	 * 
-	 * read from file and convert to Staff list
-	 * 
-	 * @param file
-	 * @return
-	 * @throws IOException
-	 */
-	public List<Staff> readFromFile(File file) throws IOException {
-		LineNumberReader lineReader = new LineNumberReader(new FileReader(file));
-		List<Staff> staffs = new ArrayList<Staff>();
-		String line;
-		LineConvertor lineParser = new StaffLineConvertor();
-		while((line = lineReader.readLine()) != null) {
-			Staff staff = (Staff)lineParser.lineToObject(line);
-			staffs.add(staff);
-		}
-		
-		lineReader.close();
-		return staffs;
-	}
-	
-	/**
-	 * 
-	 * List files in specified path and get one random
-	 * 
-	 * @param path
-	 * @return
-	 * @throws Exception
-	 */
-	public File listFileAndGetOneRandom(String path) throws Exception {
-		File file = new File(path);
-		if(!file.exists()) {
-			throw new Exception("path not exists: " + path);
-		}
-		
-		File[] files = file.listFiles();
-		HashMap<Integer, Integer> indexFile = new HashMap<Integer, Integer>();
-		int index = 0;
-		int fileCount = 0;
-		if(files == null || files.length == 0) {
-			throw new Exception("no files in the path: " + path);
-		}
-		
-		System.out.println("list files: --------------------------------------");
-		for(File f : files) {			
-			if(f.isFile()) {
-				indexFile.put(fileCount, index);
-				fileCount++;
-				System.out.println("\t" + f.getName());
-			}
-			index++;
-		}
-		System.out.println("list files end: ----------------------------------");
-		System.out.println();
-		
-		int rnd = (new Random()).nextInt(fileCount);
-		return files[indexFile.get(rnd)];
 	}
 
 }

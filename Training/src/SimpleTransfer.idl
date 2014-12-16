@@ -1,0 +1,11 @@
+module training
+{
+	module c7
+	{
+		interface SimpleTransfer
+		{
+			boolean putContent(in string fileName, in string content);
+		};
+	};
+	
+};

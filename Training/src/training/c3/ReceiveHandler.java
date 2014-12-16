@@ -1,16 +1,11 @@
 package training.c3;
 
-import java.io.File;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.nio.charset.Charset;
-import java.util.List;
 
 import javax.xml.bind.JAXBException;
 
-import training.EnvConfiguration;
 import training.c1.Util;
-import training.c2.Staff;
 
 /**
  * 
@@ -93,31 +88,11 @@ public class ReceiveHandler {
 		
 		String body = new String(bytes, Charset.forName("UTF-8"));	
 		System.out.println(body);
-		String fileName = "test-" + System.currentTimeMillis() + ".csv";
-		//TODO: verify if path and file exists
-		
-		File file = new File(EnvConfiguration.getInstance().getServerPath() + File.separator + fileName);
-		//File file = new File(storePath + fileName);
-		if(file.createNewFile()) {
-			PrintWriter printWriter = new PrintWriter(file);
-			
-			Company company = XmlUtil.xmlToObject(body, Company.class);
-			List<Staff> staffs = company.getStaffList();
-			LineConvertor lineConvertor = new StaffLineConvertor();
-			int len = staffs.size();
-			int c = 0;
-			for(Staff staff : staffs) {
-				String line = lineConvertor.objectToLine(staff);
-				printWriter.print(line);
-				c++;
-				if(c < len) {
-					printWriter.println();
-				}
-			}
-			printWriter.close();
-		}
+		FileHelper.storeFileContent(body);
 		
 	}
+
+
 	
 	private void copyBytesToLeft(byte[] bytes, int offset, int length) {
 		leftBytes = new byte[bytes.length];
