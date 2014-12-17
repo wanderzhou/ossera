@@ -28,11 +28,15 @@ public class SimpleTransferClient {
 	
 	public static void main(String[] args) {
 		try {
+			//create and initialize the ORB
 			ORB orb = ORB.init(args, null);
 			
+			//get the root naming context
 			org.omg.CORBA.Object objRef = orb.resolve_initial_references("NameService");
+			//using NamingContextExt instead of NamingContext. this is part of the interoperable naming service.
 			NamingContextExt ncRef = NamingContextExtHelper.narrow(objRef);
 			
+			//resolve the object reference in Naming
 			String name = "SimpleTransfer";
 			SimpleTransfer simpleTransferImpl = SimpleTransferHelper.narrow(ncRef.resolve_str(name));
 										
@@ -49,6 +53,7 @@ public class SimpleTransferClient {
 				
 			String xml = XmlUtil.objectToXml(company);
 				
+			//invoking operation
 			boolean result = simpleTransferImpl.putContent(file.getName(), xml);
 			System.out.print("transfer file result : " + (result ? "success" : "fail"));
 		} catch(Exception e) {

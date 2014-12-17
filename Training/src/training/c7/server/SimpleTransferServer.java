@@ -44,19 +44,25 @@ public class SimpleTransferServer {
 	
 	public static void main(String[] args) {
 		try {
+			//creating and initializing an ORB object
 			ORB orb = ORB.init(args, null);
 			
+			//get a reference to the ROOT POA
 			POA rootPOA = POAHelper.narrow(orb.resolve_initial_references("RootPOA"));
 			rootPOA.the_POAManager().activate();
 			
+			//instantiating the servant object
 			SimpleTransferImpl simpleTransferImpl = new SimpleTransferImpl();
+			//get object reference from servant 
 			org.omg.CORBA.Object objRef = rootPOA.servant_to_reference(simpleTransferImpl);
 			
 			SimpleTransfer simpleTransferRef = SimpleTransferHelper.narrow(objRef);
 						
+			//get the root naming context
 			org.omg.CORBA.Object namingRef = orb.resolve_initial_references("NameService");
 			NamingContextExt ncRef = NamingContextExtHelper.narrow(namingRef);
 			
+			//binding the object reference in naming
 			String name = "SimpleTransfer";
 			NameComponent[] path = ncRef.to_name(name);
 			ncRef.bind(path, simpleTransferRef);
