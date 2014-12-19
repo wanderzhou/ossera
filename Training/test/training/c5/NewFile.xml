@@ -1,0 +1,207 @@
+<serialized>
+	<object class="training.c5.Zoo" id="0">
+		<field name="name" declaringClass="training.c5.Zoo">
+			<reference>1</reference>
+		</field>
+		<field name="city" declaringClass="training.c5.Zoo">
+			<reference>3</reference>
+		</field>
+		<field name="animals" declaringClass="training.c5.Zoo">
+			<reference>5</reference>
+		</field>
+		<field name="count" declaringClass="training.c5.Zoo">
+			<value>2</value>
+		</field>
+		<field name="Default_Size" declaringClass="training.c5.Zoo">
+			<value>10</value>
+		</field>
+		<field name="capacity" declaringClass="training.c5.Zoo">
+			<value>10</value>
+		</field>
+	</object>
+	<object class="java.lang.String" id="1">
+		<field name="value" declaringClass="java.lang.String">
+			<reference>2</reference>
+		</field>
+		<field name="hash" declaringClass="java.lang.String">
+			<value>0</value>
+		</field>
+		<field name="hash32" declaringClass="java.lang.String">
+			<null />
+		</field>
+	</object>
+	<object class="[C" id="2" length="12">
+		<value>B</value>
+		<value>e</value>
+		<value>i</value>
+		<value>
+		</value>
+		<value>J</value>
+		<value>i</value>
+		<value>n</value>
+		<value>g</value>
+		<value>
+		</value>
+		<value>Z</value>
+		<value>o</value>
+		<value>o</value>
+	</object>
+	<object class="java.lang.String" id="3">
+		<field name="value" declaringClass="java.lang.String">
+			<reference>4</reference>
+		</field>
+		<field name="hash" declaringClass="java.lang.String">
+			<value>0</value>
+		</field>
+		<field name="hash32" declaringClass="java.lang.String">
+			<null />
+		</field>
+	</object>
+	<object class="[C" id="4" length="8">
+		<value>B</value>
+		<value>e</value>
+		<value>i</value>
+		<value>
+		</value>
+		<value>J</value>
+		<value>i</value>
+		<value>n</value>
+		<value>g</value>
+	</object>
+	<object class="[Ltraining.c5.Animal;" id="5" length="10">
+		<reference>6</reference>
+		<reference>13</reference>
+		<null />
+		<null />
+		<null />
+		<null />
+		<null />
+		<null />
+		<null />
+		<null />
+	</object>
+	<object class="training.c5.Animal" id="6">
+		<field name="name" declaringClass="training.c5.Animal">
+			<reference>7</reference>
+		</field>
+		<field name="gender" declaringClass="training.c5.Animal">
+			<reference>9</reference>
+		</field>
+		<field name="classification" declaringClass="training.c5.Animal">
+			<reference>11</reference>
+		</field>
+		<field name="weight" declaringClass="training.c5.Animal">
+			<value>120</value>
+		</field>
+	</object>
+	<object class="java.lang.String" id="7">
+		<field name="value" declaringClass="java.lang.String">
+			<reference>8</reference>
+		</field>
+		<field name="hash" declaringClass="java.lang.String">
+			<value>0</value>
+		</field>
+		<field name="hash32" declaringClass="java.lang.String">
+			<null />
+		</field>
+	</object>
+	<object class="[C" id="8" length="6">
+		<value>p</value>
+		<value>a</value>
+		<value>n</value>
+		<value>d</value>
+		<value>a</value>
+		<value>1</value>
+	</object>
+	<object class="java.lang.String" id="9">
+		<field name="value" declaringClass="java.lang.String">
+			<reference>10</reference>
+		</field>
+		<field name="hash" declaringClass="java.lang.String">
+			<value>70</value>
+		</field>
+		<field name="hash32" declaringClass="java.lang.String">
+			<null />
+		</field>
+	</object>
+	<object class="[C" id="10" length="1">
+		<value>F</value>
+	</object>
+	<object class="java.lang.String" id="11">
+		<field name="value" declaringClass="java.lang.String">
+			<reference>12</reference>
+		</field>
+		<field name="hash" declaringClass="java.lang.String">
+			<value>0</value>
+		</field>
+		<field name="hash32" declaringClass="java.lang.String">
+			<null />
+		</field>
+	</object>
+	<object class="[C" id="12" length="2">
+		<value>U</value>
+		<value>N</value>
+	</object>
+	<object class="training.c5.Animal" id="13">
+		<field name="name" declaringClass="training.c5.Animal">
+			<reference>14</reference>
+		</field>
+		<field name="gender" declaringClass="training.c5.Animal">
+			<reference>16</reference>
+		</field>
+		<field name="classification" declaringClass="training.c5.Animal">
+			<reference>18</reference>
+		</field>
+		<field name="weight" declaringClass="training.c5.Animal">
+			<value>189</value>
+		</field>
+	</object>
+	<object class="java.lang.String" id="14">
+		<field name="value" declaringClass="java.lang.String">
+			<reference>15</reference>
+		</field>
+		<field name="hash" declaringClass="java.lang.String">
+			<value>0</value>
+		</field>
+		<field name="hash32" declaringClass="java.lang.String">
+			<null />
+		</field>
+	</object>
+	<object class="[C" id="15" length="6">
+		<value>p</value>
+		<value>a</value>
+		<value>n</value>
+		<value>d</value>
+		<value>a</value>
+		<value>2</value>
+	</object>
+	<object class="java.lang.String" id="16">
+		<field name="value" declaringClass="java.lang.String">
+			<reference>17</reference>
+		</field>
+		<field name="hash" declaringClass="java.lang.String">
+			<value>77</value>
+		</field>
+		<field name="hash32" declaringClass="java.lang.String">
+			<null />
+		</field>
+	</object>
+	<object class="[C" id="17" length="1">
+		<value>M</value>
+	</object>
+	<object class="java.lang.String" id="18">
+		<field name="value" declaringClass="java.lang.String">
+			<reference>19</reference>
+		</field>
+		<field name="hash" declaringClass="java.lang.String">
+			<value>2155</value>
+		</field>
+		<field name="hash32" declaringClass="java.lang.String">
+			<null />
+		</field>
+	</object>
+	<object class="[C" id="19" length="2">
+		<value>C</value>
+		<value>N</value>
+	</object>
+</serialized>
