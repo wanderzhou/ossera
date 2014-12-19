@@ -1,5 +1,7 @@
 package training.c1;
 
+import java.math.BigDecimal;
+
 public class Sample11MainTest {
 
 	public static void main(String[] args) {
@@ -62,21 +64,19 @@ public class Sample11MainTest {
 		Sample11Main.doIt(String.valueOf("-234309.33"));
 		System.out.println();	
 		
-				
-		/*
-		 * format issue
-		 * 
-		Sample11Main.doIt(String.valueOf(Float.toString(Float.MIN_VALUE)));
+
+		Sample11Main.doIt(BigDecimal.valueOf(Float.MIN_VALUE).toPlainString());
 		System.out.println();
+
 		
-		Sample11Main.doIt(String.valueOf((float)Float.MAX_VALUE));
+		Sample11Main.doIt(BigDecimal.valueOf(Float.MAX_VALUE).toPlainString());
 		System.out.println();	
 		
-		Sample11Main.doIt(String.valueOf((double)Float.MIN_VALUE + 1.0));
+		Sample11Main.doIt(BigDecimal.valueOf(Float.MIN_VALUE + 1.0).toPlainString());
 		System.out.println();
 		
-		Sample11Main.doIt(String.valueOf((double)Float.MAX_VALUE - 1.0));
-		System.out.println();*/
+		Sample11Main.doIt(BigDecimal.valueOf(Float.MAX_VALUE - 1.0).toPlainString());
+		System.out.println();
 		
 		
 	}

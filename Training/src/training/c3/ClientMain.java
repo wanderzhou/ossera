@@ -1,13 +1,7 @@
 package training.c3;
 
 import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.LineNumberReader;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Random;
 
 import training.EnvConfiguration;
 import training.c2.Staff;
@@ -25,8 +19,7 @@ import training.c2.Staff;
 public class ClientMain {
 	
 	public static void main(String[] args) {
-		ClientMain clientMain = new ClientMain();
-		
+	
 		try {
 			Client client = new Client();
 			client.start();

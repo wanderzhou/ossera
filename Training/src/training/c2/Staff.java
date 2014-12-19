@@ -4,24 +4,25 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * 
- * 员工 
+ * 员工
  * 
  * @author admin
- *
+ * 
  */
 public class Staff {
-	
+
 	private int id;
-	
+
 	private String name;
-	
-	public Staff() {}
+
+	public Staff() {
+	}
 
 	public Staff(int id, String name) {
 		this.id = id;
 		this.name = name;
 	}
-	
+
 	public int getId() {
 		return id;
 	}
@@ -37,7 +38,7 @@ public class Staff {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
+
 	/**
 	 * id as hash code
 	 */
@@ -45,10 +46,19 @@ public class Staff {
 	public int hashCode() {
 		return this.id;
 	}
-	
+
 	@Override
 	public boolean equals(Object obj) {
-		return this.id == ((Staff)obj).id && this.name.equals(((Staff)obj).name);
+		if (this == obj) {
+			return true;
+		}
+		
+		if (obj instanceof Staff) {
+			return this.id == ((Staff) obj).id
+					&& this.name.equals(((Staff) obj).name);
+		}
+
+		return false;
 	}
 
 }

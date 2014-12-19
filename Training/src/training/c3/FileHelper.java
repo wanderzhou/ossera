@@ -102,7 +102,6 @@ public class FileHelper {
 		System.out.println("list files end: ----------------------------------");
 		System.out.println();
 		
-		int rnd = (new Random()).nextInt(fileCount);
-		return files[indexFile.get(rnd)];
+		return files[indexFile.get((new Random()).nextInt(fileCount))];
 	}	
 }

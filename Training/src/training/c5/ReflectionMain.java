@@ -34,7 +34,7 @@ public class ReflectionMain {
 				ReflectionMain reflectionMain = new ReflectionMain();
 				
 				Class<?> c;
-				if(!searchPath.trim().equals("")) {
+				if(!"".equals(searchPath.trim())) {
 					c = reflectionMain.loadClass(searchPath, className);
 				} else {
 					c = Class.forName(className);
